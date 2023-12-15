@@ -1,610 +1,607 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-	<title>Blog Post</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="description" content="OneTech shop project">
+	<title></title>
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="/static/styles/bootstrap4/bootstrap.min.css">
-	<link href="/static/plugins/fontawesome-free-5.0.1/css/fontawesome-all.css" rel="stylesheet" type="text/css">
-	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-	<link rel="stylesheet" type="text/css" href="/static/plugins/OwlCarousel2-2.2.1/animate.css">
-	<link rel="stylesheet" type="text/css" href="/static/styles/blog_single_styles.css">
-	<link rel="stylesheet" type="text/css" href="/static/styles/blog_single_responsive.css">
-	<link rel="stylesheet" type="text/css" href="/static/styles/blog_single_responsive.css">
-	<link rel="stylesheet" type="text/css" href="/static/styles/style.css">
-	<link rel="stylesheet" type="text/css" href="/static/styles/demo.css">
-
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-    integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+		integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-	<!-- /home/me/Downloads/coup/coupon/static/styles -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		integrity="sha384-eztk5u9xvFg4GJl5VZ1vBUQF7N47V4GHw70X8bs6aej1eabrt9tkjx4Byc9O5e/u" crossorigin="anonymous">
+
+	<style>
+		navbar a {
+			font-size: 16px;
+			font-weight: 300;
+			font-family: "Montserrat", sans-serif;
+			-webkit-transition: all 0.2s ease;
+			-moz-transition: all 0.2s ease;
+			-ms-transition: all 0.2s ease;
+			-o-transition: all 0.2s ease;
+			transition: all 0.2s ease;
+			padding: 10px;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border-radius: 2px;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: pointer;
+			margin: 4px;
+		}
+
+		navbar a:hover,
+		navbar a:active,
+		navbar a {
+			text-decoration: none;
+			color: rgba(0, 0, 0, 0.6);
+		}
+
+		navbar a:hover {
+			background: rgba(0, 0, 0, 0.06);
+		}
+
+		navbar a:active {
+			color: rgba(0, 0, 0, 0.9);
+			background: rgba(0, 0, 0, 0.1);
+		}
+
+		navbar a {
+			color: #5bc0de;
+			font-family: "Montserrat", sans-serif;
+			font-weight: 500;
+			font-size: 14px;
+			float: right;
+		}
+
+		/*Shadow*/
+		navbar .paper-shadow-bottom-z-2 {
+			box-shadow: 0 8px 17px 0 rgba(0, 0, 0, .2);
+		}
+
+		/*Setting Up Navbar Layouts*/
+		navbar .navbar-inverse {
+			color: #000;
+			background: #fff;
+			border: none;
+			min-height: 50px;
+			max-height: 50px;
+			height: 50px;
+		}
+
+		navbar .container-fluid {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			left: 0;
+		}
+
+		navbar .navbar-body {
+			display: flex;
+			display: -webkit-flex;
+			flex-direction: row;
+			align-items: center;
+			-webkit-align-items: center;
+			justify-content: space-between;
+			height: 100%;
+			position: relative;
+		}
+
+		navbar div.navbar-end {
+			align-items: flex-start;
+			-webkit-align-items: flex-start;
+		}
+
+		navbar div.navbar-start,
+		navbar div.navbar-end {
+			flex: 1;
+			-webkit-flex: 1;
+			display: flex;
+			display: -webkit-flex;
+			flex-direction: row;
+			align-items: center;
+			-webkit-align-items: center;
+			justify-content: space-around;
+		}
+
+		navbar div.navbar-start .logo {
+			opacity: 0.6;
+			width: 30px;
+		}
+
+		/*Integrating Two Navbars Together*/
+		navbar .nav {
+			z-index: 2;
+		}
+
+		navbar .tabs {
+			margin-top: 50px;
+			z-index: 1;
+			position: relative;
+		}
+
+		navbar .tabs .navbar-body {
+			padding: 0;
+			margin-bottom: 0;
+		}
+
+		/*Styling Search Textbox*/
+
+		navbar div.search {
+			background: rgba(0, 0, 0, 0.12);
+			flex: 3;
+			-webkit-flex: 3;
+			margin: 6px;
+			-webkit-border-radius: 2px;
+			-moz-border-radius: 2px;
+			border-radius: 2px;
+			cursor: pointer;
+			text-align: center;
+			position: relative;
+			-webkit-transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-moz-transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-ms-transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-o-transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+			transition: all 0.3s cubic-bezier(0.21, 0.61, 0.36, 1);
+		}
+
+		navbar div.search {
+			display: flex;
+			display: -webkit-flex;
+			flex-direction: row;
+			justify-content: center;
+			-webkit-justify-content: center;
+			align-items: center;
+			-webkit-align-items: center;
+			height: 42px;
+			padding: 0 9px;
+			overflow-x: hidden;
+		}
+
+		navbar div.search.focused {
+			background: rgba(0, 0, 0, 0.05);
+		}
+
+		navbar div.search .search-textbox {
+			position: relative;
+			width: 60px;
+			height: 100%;
+			background: transparent;
+			border: none;
+			font-family: "Montserrat", sans-serif;
+			font-size: 16px;
+			text-align: start;
+			color: rgba(0, 0, 0, 1);
+			outline: none;
+			-webkit-transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-moz-transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-ms-transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-o-transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+			transition: all 0.5s cubic-bezier(0.21, 0.61, 0.36, 1);
+			cursor: pointer;
+
+		}
+
+		navbar div.search.focused .search-textbox {
+			width: 100%;
+			cursor: text;
+		}
+
+		navbar div.search:hover span {
+			-webkit-transform: translateX(40%);
+			-moz-transform: translateX(40%);
+			-ms-transform: translateX(40%);
+			-o-transform: translateX(40%);
+			transform: translateX(40%);
+		}
+
+		navbar .ico-btn {
+			position: relative;
+			width: 30px;
+			height: 30px;
+			-webkit-border-radius: 50%;
+			-moz-border-radius: 50%;
+			border-radius: 50%;
+			padding: 5px;
+		}
+
+		navbar .ico-btn.search-btn,
+		.ico-btn.clear-btn {
+			padding: 3px;
+			margin: 3px;
+			opacity: 0;
+			visibility: hidden;
+
+		}
+
+		navbar .ico-btn.clear-btn {
+			margin-right: -30px;
+			-webkit-animation: 0.3s SwiftSlideToRight cubic-bezier(0.21, 0.61, 0.36, 1) 0.2s;
+			-o-animation: 0.3s SwiftSlideToRight cubic-bezier(0.21, 0.61, 0.36, 1) 0.2s;
+			animation: 0.3s SwiftSlideToRight cubic-bezier(0.21, 0.61, 0.36, 1) 0.2s;
+			-webkit-animation-delay: 0.2s;
+			-moz-animation-delay: 0.2s;
+			-o-animation-delay: 0.2s;
+			animation-delay: 0.2s;
+		}
+
+		navbar div.search.focused.not-null.multi-char .ico-btn.clear-btn {
+			margin-right: 0;
+			opacity: 1;
+			visibility: visible;
+			-webkit-animation: 0.3s SwiftSlide cubic-bezier(0.21, 0.61, 0.36, 1);
+			-o-animation: 0.3s SwiftSlide cubic-bezier(0.21, 0.61, 0.36, 1);
+			animation: 0.3s SwiftSlide cubic-bezier(0.21, 0.61, 0.36, 1);
+			-webkit-animation-delay: 0.2s;
+			-moz-animation-delay: 0.2s;
+			-o-animation-delay: 0.2s;
+			animation-delay: 0.2s;
+		}
+
+		navbar .ico-btn {
+			-webkit-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-moz-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-ms-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-o-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+			transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+		}
+
+		navbar div.search.focused.not-null .ico-btn.search-btn {
+			visibility: visible;
+			opacity: 1;
+			-webkit-transition-duration: 0.6s;
+			-moz-transition-duration: 0.6s;
+			-ms-transition-duration: 0.6s;
+			-o-transition-duration: 0.6s;
+			transition-duration: 0.6s;
+		}
+
+		/*Styling Tabs*/
+		navbar .tabs .navbar-body li.active a {
+			color: #333;
+		}
+
+		navbar .tabs .navbar-body li {
+			-webkit-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-moz-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-ms-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-o-transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+			transition: all 0.2s cubic-bezier(0.21, 0.61, 0.36, 1);
+		}
+
+		navbar .tabs .navbar-body li:hover {
+			background: rgba(0, 0, 0, 0.02);
+		}
+
+		navbar .tabs .navbar-body li:active {
+			background: rgba(0, 0, 0, 0.05);
+		}
+
+		navbar .tabs .navbar-body li a:hover,
+		.tabs .navbar-body li a:active {
+			background: rgba(0, 0, 0, 0);
+			color: #5bc0de;
+		}
+
+		/*Styling Tab Highlighter*/
+		navbar .tab-highlighter {
+			height: 2px;
+			width: 50px;
+			margin-top: -2px;
+			background: #000;
+			position: absolute;
+			-webkit-transition: all 0.6s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-moz-transition: all 0.6s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-ms-transition: all 0.6s cubic-bezier(0.21, 0.61, 0.36, 1);
+			-o-transition: all 0.6s cubic-bezier(0.21, 0.61, 0.36, 1);
+			transition: all 0.6s cubic-bezier(0.21, 0.61, 0.36, 1);
+		}
+
+		/*Keyframes*/
+		@keyframes SwiftSlide {
+			100% {
+				margin-right: 0;
+				opacity: 1;
+			}
+		}
+
+		@keyframes SwiftSlideToRight {
+			100% {
+				opacity: 0;
+				margin-right: -30px;
+			}
+		}
+	</style>
 </head>
 
-<body>
-
-	<div class="super_container">
-
-		<!-- Header -->
-
-		<header class="header">
-				
-			<!-- Header Main -->
-
-			<div class="header_main">
-				<div class="container">
-					<div class="row">
-
-						
-						<!-- Logo -->
-
-						<div class="col-lg-2 col-sm-3 col-3 order-1">
-							<div class="logo_container">
-								<div class="logo"><a href="#">BrajMinds</a></div>
-							</div>
-						</div>
-
-						<!-- Search -->
-						<div class="col-lg-6 col-12 order-lg-2 order-3 text-lg-left text-right">
-							<div class="header_search">
-								<div class="header_search_content">
-									<div class="header_search_form_container">
-										<form action="#" class="header_search_form clearfix">
-											<input type="search" required="required" class="header_search_input"
-												placeholder="Search for products...">
-											<div class="custom_dropdown">
-												<div class="custom_dropdown_list">
-													<span class="custom_dropdown_placeholder clc">All Categories</span>
-													<i class="fas fa-chevron-down"></i>
-													<ul class="custom_list clc">
-														<li><a class="clc" href="#">All Categories</a></li>
-														<li><a class="clc" href="#">Computers</a></li>
-														<li><a class="clc" href="#">Laptops</a></li>
-														<li><a class="clc" href="#">Cameras</a></li>
-														<li><a class="clc" href="#">Hardware</a></li>
-														<li><a class="clc" href="#">Smartphones</a></li>
-													</ul>
-												</div>
-											</div>
-											<button type="submit" class="header_search_button trans_300"
-												value="Submit"><img src="/static/images/search.png" alt=""></button>
-										</form>
-									</div>
+<body class="bg-body-secondary">
+	<navbar>
+		<div class="navbar nav navbar-fixed-top navbar-inverse">
+			<div class="container-fluid">
+				<div class="v-flex">
+					<div class="navbar-body">
+						<div class="navbar-start">
+							<div class="hamburger-menu">
+								<div class="ic_menu">
+									<span></span>
+									<span></span>
+									<span></span>
 								</div>
 							</div>
+							<img class="logo"
+								src="https://firebasestorage.googleapis.com/v0/b/personal-1c08e.appspot.com/o/logo.svg?alt=media&token=7a322d4e-6088-4647-975a-0f36107a5547">
 						</div>
+						<div class="search">
+							<input type="text" class="search-textbox" placeholder="Search">
+							<a class="ico-btn search-btn"><i class="material-icons ic_search">&#xE8B6;</i></a>
+							<a class="ico-btn clear-btn"><i class="material-icons ic_clear">&#xE14C;</i></a>
+						</div>
+						<div class="navbar-end">
+							<a style="text-transform: uppercase">Get in</a>
 
-						<!-- Wishlist -->
-						<div class="col-lg-4 col-9 order-lg-3 order-2 text-lg-left text-right">
-							<div class="wishlist_cart d-flex flex-row align-items-center justify-content-end">
-								<div class="wishlist d-flex flex-row align-items-center justify-content-end">
-									<div class="wishlist_icon"><img src="images/heart.png" alt=""></div>
-									<div class="wishlist_content">
-										<div class="wishlist_text"><a href="#">Wishlist</a></div>
-										<div class="wishlist_count">115</div>
-									</div>
-								</div>
-								<!-- <label for="">dheerajx</label> -->
-								<ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu">
-									<li class="nav-item dropdown">
-									  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-										aria-expanded="false">
+							<!-- <ul class="navbar-nav ms-auto mb-2 mb-lg-0 profile-menu">
+								<li class="nav-item dropdown">
+									<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+										data-bs-toggle="dropdown" aria-expanded="false">
 										<div class="profile-pic">
-										  <img src="https://source.unsplash.com/250x250?girl" alt="Profile Picture">
+											<img src="https://source.unsplash.com/250x250?girl" alt="Profile Picture">
 										</div>
-									  </a>
-									  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-										<li><a class="dropdown-item" href="#"><i class="fas fa-sliders-h fa-fw"></i> Account</a></li>
-										<li><a class="dropdown-item" href="#"><i class="fa fa-users"></i>  {{ request.user.username|title }}
-										<li><a class="dropdown-item" href="#"><i class="fas fa-cog fa-fw"></i> Settings</a></li>
-										</a></li>
-										<li>
-										  <hr class="dropdown-divider">
-										</li>
-										<li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-fw"></i> Log Out</a></li>
-									  </ul>
-									</li>
-								  </ul>
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<li><a class="dropdown-item" href="#"><i class="fas fa-sliders-h fa-fw"></i>
+												Account</a></li>
+										<li><a class="dropdown-item" href="#"><i class="fa fa-users"></i> {{
+												request.user.username|title }}
+										<li><a class="dropdown-item" href="#"><i class="fas fa-cog fa-fw"></i>
+												Settings</a></li>
+										</a>
+								</li>
+								<li>
+									<hr class="dropdown-divider">
+								</li>
+								<li><a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt fa-fw"></i> Log
+										Out</a></li>
+							</ul>
+							</li>
+							</ul> -->
 
 
-								<!-- Cart -->
-								<!-- <div class="cart">
-									<div class="cart_container d-flex flex-row align-items-center justify-content-end">
-										<div class="cart_icon">
-											<img src="images/cart.png" alt="">
-											<div class="cart_count"><span>10</span></div>
-										</div>
-										<div class="cart_content">
-											<div class="cart_text"><a href="#">Cart</a></div>
-											<div class="cart_price">$85</div>
-										</div>
-									</div>
-									
-								</div> -->
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<!-- Main Navigation -->
-
-			<nav class="main_nav">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-
-							<div class="main_nav_content d-flex flex-row">
-
-								<!-- Categories Menu -->
-
-								<div class="cat_menu_container">
-									<div
-										class="cat_menu_title d-flex flex-row align-items-center justify-content-start">
-										<div class="cat_burger"><span></span><span></span><span></span></div>
-										<div class="cat_menu_text">categories</div>
-									</div>
-
-									<ul class="cat_menu">
-										<li><a href="#">Computers & Laptops <i
-													class="fas fa-chevron-right ml-auto"></i></a>
-										</li>
-										<li><a href="#">Cameras & Photos<i class="fas fa-chevron-right"></i></a></li>
-										<li class="hassubs">
-											<a href="#">Hardware<i class="fas fa-chevron-right"></i></a>
-											<ul>
-												<li class="hassubs">
-													<a href="#">Menu Item<i class="fas fa-chevron-right"></i></a>
-													<ul>
-														<li><a href="#">Menu Item<i
-																	class="fas fa-chevron-right"></i></a></li>
-														<li><a href="#">Menu Item<i
-																	class="fas fa-chevron-right"></i></a></li>
-														<li><a href="#">Menu Item<i
-																	class="fas fa-chevron-right"></i></a></li>
-														<li><a href="#">Menu Item<i
-																	class="fas fa-chevron-right"></i></a></li>
-													</ul>
-												</li>
-												<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-												<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-												<li><a href="#">Menu Item<i class="fas fa-chevron-right"></i></a></li>
-											</ul>
-										</li>
-										<li><a href="#">Smartphones & Tablets<i class="fas fa-chevron-right"></i></a>
-										</li>
-										<li><a href="#">TV & Audio<i class="fas fa-chevron-right"></i></a></li>
-										<li><a href="#">Gadgets<i class="fas fa-chevron-right"></i></a></li>
-										<li><a href="#">Car Electronics<i class="fas fa-chevron-right"></i></a></li>
-										<li><a href="#">Video Games & Consoles<i class="fas fa-chevron-right"></i></a>
-										</li>
-										<li><a href="#">Accessories<i class="fas fa-chevron-right"></i></a></li>
-									</ul>
-								</div>
-
-								<!-- Main Nav Menu -->
-
-								<div class="main_nav_menu ml-auto">
-									<ul class="standard_dropdown main_nav_dropdown">
-										<li><a href="index-2.html">Home<i class="fas fa-chevron-down"></i></a></li>
-										<li class="hassubs">
-											<a href="#">Super Deals<i class="fas fa-chevron-down"></i></a>
-											<ul>
-												<li>
-													<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-													<ul>
-														<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-														</li>
-														<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-														</li>
-														<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-														</li>
-													</ul>
-												</li>
-												<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											</ul>
-										</li>
-										<li class="hassubs">
-											<a href="#">Featured Brands<i class="fas fa-chevron-down"></i></a>
-											<ul>
-												<li>
-													<a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-													<ul>
-														<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-														</li>
-														<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-														</li>
-														<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a>
-														</li>
-													</ul>
-												</li>
-												<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-												<li><a href="#">Menu Item<i class="fas fa-chevron-down"></i></a></li>
-											</ul>
-										</li>
-										<li class="hassubs">
-											<a href="#">Pages<i class="fas fa-chevron-down"></i></a>
-											<ul>
-												<li><a href="shop.html">Shop<i class="fas fa-chevron-down"></i></a></li>
-												<li><a href="product.html">Product<i
-															class="fas fa-chevron-down"></i></a></li>
-												<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-												<li><a href="blog_single.html">Blog Post<i
-															class="fas fa-chevron-down"></i></a>
-												</li>
-												<li><a href="regular.html">Regular Post<i
-															class="fas fa-chevron-down"></i></a>
-												</li>
-												<li><a href="cart.html">Cart<i class="fas fa-chevron-down"></i></a></li>
-												<li><a href="contact.html">Contact<i
-															class="fas fa-chevron-down"></i></a></li>
-											</ul>
-										</li>
-										<li><a href="blog.html">Blog<i class="fas fa-chevron-down"></i></a></li>
-										<li><a href="contact.html">Contact<i class="fas fa-chevron-down"></i></a></li>
-									</ul>
-								</div>
-
-								<!-- Menu Trigger -->
-
-								<div class="menu_trigger_container ml-auto">
-									<div class="menu_trigger d-flex flex-row align-items-center justify-content-end">
-										<div class="menu_burger">
-											<div class="menu_trigger_text">menu</div>
-											<div class="cat_burger menu_burger_inner">
-												<span></span><span></span><span></span>
-											</div>
-										</div>
-									</div>
-								</div>
-
-							</div>
-						</div>
-					</div>
-				</div>
-			</nav>
-
-			<!-- Menu -->
-
-			<!-- <div class="page_menu">
-				<div class="container">
-					<div class="row">
-						<div class="col">
-
-							<div class="page_menu_content">
-
-								<div class="page_menu_search">
-									<form action="#">
-										<input type="search" required="required" class="page_menu_search_input"
-											placeholder="Search for products...">
-									</form>
-								</div>
-								<ul class="page_menu_nav">
-									<li class="page_menu_item has-children">
-										<a href="#">Language<i class="fa fa-angle-down"></i></a>
-										<ul class="page_menu_selection">
-											<li><a href="#">English<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Italian<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Spanish<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Japanese<i class="fa fa-angle-down"></i></a></li>
-										</ul>
-									</li>
-									<li class="page_menu_item has-children">
-										<a href="#">Currency<i class="fa fa-angle-down"></i></a>
-										<ul class="page_menu_selection">
-											<li><a href="#">US Dollar<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">EUR Euro<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">GBP British Pound<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">JPY Japanese Yen<i class="fa fa-angle-down"></i></a></li>
-										</ul>
-									</li>
-									<li class="page_menu_item">
-										<a href="index-2.html">Home<i class="fa fa-angle-down"></i></a>
-									</li>
-									<li class="page_menu_item has-children">
-										<a href="#">Super Deals<i class="fa fa-angle-down"></i></a>
-										<ul class="page_menu_selection">
-											<li><a href="#">Super Deals<i class="fa fa-angle-down"></i></a></li>
-											<li class="page_menu_item has-children">
-												<a href="#">Menu Item<i class="fa fa-angle-down"></i></a>
-												<ul class="page_menu_selection">
-													<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-													<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-												</ul>
-											</li>
-											<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-										</ul>
-									</li>
-									<li class="page_menu_item has-children">
-										<a href="#">Featured Brands<i class="fa fa-angle-down"></i></a>
-										<ul class="page_menu_selection">
-											<li><a href="#">Featured Brands<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-										</ul>
-									</li>
-									<li class="page_menu_item has-children">
-										<a href="#">Trending Styles<i class="fa fa-angle-down"></i></a>
-										<ul class="page_menu_selection">
-											<li><a href="#">Trending Styles<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-											<li><a href="#">Menu Item<i class="fa fa-angle-down"></i></a></li>
-										</ul>
-									</li>
-									<li class="page_menu_item"><a href="blog.html">blog<i
-												class="fa fa-angle-down"></i></a></li>
-									<li class="page_menu_item"><a href="contact.html">contact<i
-												class="fa fa-angle-down"></i></a></li>
-								</ul>
-
-								<div class="menu_contact">
-									<div class="menu_contact_item">
-										<div class="menu_contact_icon"><img src="images/phone_white.png" alt=""></div>
-										+38 068 005 3570
-									</div>
-									<div class="menu_contact_item">
-										<div class="menu_contact_icon"><img src="images/mail_white.png" alt=""></div><a
-											href="https://colorlib.com/cdn-cgi/l/email-protection#2f494e5c5b5c4e434a5c6f48424e4643014c4042"><span
-												class="__cf_email__"
-												data-cfemail="4d2b2c3e393e2c21283e0d2a202c2421632e2220">[email&#160;protected]</span></a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div> -->
-
-		</header>
-
-		<!-- Home -->
-
-		<!-- <div class="home">
-			<div class="home_background parallax-window" data-parallax="scroll"
-				data-image-src="images/blog_single_background.jpg" data-speed="0.8"></div>
-		</div> -->
-
-		<!-- Single Blog Post -->
-
-		<div class="single_post">
-			<div class="container border-info">
-				<div class="row">
-					<div class="col-lg-8 offset-lg-2">
-						<div class="single_post_title">brand name</div>
-						<div class="col-form-label ">
-							<p>categories</p>
-
-							<div class="single_post_quote text-center">
-								<div class="quote_image"><img src="/static/images/quote.png" alt=""></div>
-								<div class="quote_text">Quisque sagittis non ex eget vestibulum. Sed nec ultrices dui.
-									Cras et sagittis erat. Maecenas pulvinar, turpis in dictum tincidunt, dolor nibh
-									lacinia lacus.</div>
-								<div class="quote_name">Liam Neeson</div>
-							</div>
-
-							<p>####</p>
-							<div class="row">
-								<div class=" col-12 outline-danger">
-
-								</div>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<div class="navbar navbar-fixed-top navbar-inverse tabs paper-shadow-bottom-z-2">
+			<div class="container-fluid">
+				<ul class="navbar-body list-inline">
+					<li class="active"><a class="active">Home</a></li>
+					<li class="active"><a class="active">sta</a></li>
+					<li class="active"><a class="active">sta</a></li>
+					<li class="active"><a class="active">sta</a></li>
+				</ul>
+				<div class="tab-highlighter">
 
-		<!-- Blog Posts -->
-		<!-- 
-		<div class="blog">
-			<div class="container">
-				<div class="row">
-					<div class="col">
-						<div class="blog_posts d-flex flex-row align-items-start justify-content-between">
 
-							<!-- Blog post -->
-		<!-- <div class="blog_post">
-								<div class="blog_image" style="background-image:url(images/blog_4.jpg)"></div>
-								<div class="blog_text">Etiam leo nibh, consectetur nec orci et, tempus tempus ex</div>
-								<div class="blog_button"><a href="blog_single.html">Continue Reading</a></div>
-							</div> -->
 
-		<!-- Blog post -->
-		<!-- <div class="blog_post">
-								<div class="blog_image" style="background-image:url(images/blog_5.jpg)"></div>
-								<div class="blog_text">Sed viverra pellentesque dictum. Aenean ligula justo, viverra in
-									lacus porttitor</div>
-								<div class="blog_button"><a href="blog_single.html">Continue Reading</a></div>
-							</div> -->
-
-		<!-- Blog post -->
-		<!-- <div class="blog_post">
-								<div class="blog_image" style="background-image:url(images/blog_6.jpg)"></div>
-								<div class="blog_text">In nisl tortor, tempus nec ex vitae, bibendum rutrum mi. Integer
-									tempus nisi</div>
-								<div class="blog_button"><a href="blog_single.html">Continue Reading</a></div>
-							</div> -->
-
-		<!--</div>
-					</div>
+					<!-- <li></li> -->
+					<!-- <li></li> -->
+					<!-- <li></li> -->
+					<!-- <li></li> -->
+					<!-- <li></li> -->
 				</div>
 			</div>
-		</div> -->
+		</div>
+	</navbar>
 
-		<!-- Newsletter -->
+	<div class="row m-2">
+		<div class="col-2">
+			<div class="card">
+				<div class="card-body">
+					<p class="card-text">
+						<i class="fa fa-thumbs-up" aria-hidden="true"></i>
+						<button type="button" class="btn btn-primary" data-bs-toggle="modal"
+							data-bs-target="#exampleModal" data-bs-whatever="@mdo"><i class="fa fa-thumbs-up"
+								aria-hidden="true"></i></button>
 
-		<!-- <div class="newsletter">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="newsletter_container d-flex flex-lg-row flex-column align-items-lg-center align-items-center justify-content-lg-start justify-content-center">
-						<div class="newsletter_title_container">
-							<div class="newsletter_icon"><img src="images/send.png" alt=""></div>
-							<div class="newsletter_title">Sign up for Newsletter</div>
-							<div class="newsletter_text"><p>...and receive %20 coupon for first shopping.</p></div>
+
+						<!-- <i class="fa fa-pencil" aria-hidden="true"></i> -->
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-6">
+			<div class="card">
+				<div class="d-flex mt-2 ms-2">
+
+					<div style="width: 50px; height: 50px; border-radius: 70%; overflow: hidden;">
+						<img src="https://thrivethemes.com/wp-content/uploads/2018/05/photo-jpeg-example.jpg"
+							alt="Profile picture" style="width: 100%; height: auto;">
+					</div>
+					<p>
+						{{request.user.username|title}}
+					</p>
+
+				</div>
+				{% for i in postdata %}
+
+				<div class="card-body">
+					<p class="card-text">
+						{{i.text}}
+						<!-- {{i.File_name}} -->
+					</p>
+				</div>
+				<div style="width: 640px; height: 450px; overflow: hidden;" class="flex-column">
+					<img src="{{i.File_name}}" style="width: 100%; height: auto;">
+				</div>
+				<div class="d-flex m-1">
+					<div class="card bg-body-tertiary h-75">
+						<div class="card-body">
+							<i class="fa fa-thumbs-up"></i>
+							<i class="fa fa-thumbs-down ms-4"></i>
 						</div>
-						<div class="newsletter_content clearfix">
-							<form action="#" class="newsletter_form">
-								<input type="email" class="newsletter_input" required="required" placeholder="Enter your email address">
-								<button class="newsletter_button">Subscribe</button>
-							</form>
-							<div class="newsletter_unsubscribe_link"><a href="#">unsubscribe</a></div>
-						</div>
+					</div>
+
+					<i class="fa fa-comments justify-content-between"></i>
+					<div class="justify-content-end">
+						<i class="fa fa-share"></i>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div> -->
+		{% endfor %}
+		<div class="col-2">
+			<div class="card">
+				<div class="card-body">
+					<p class="card-text">
 
-		<!-- Footer -->
-
-		<footer class="footer">
-			<div class="container">
-				<div class="row">
-
-					<div class="col-lg-3 footer_col">
-						<div class="footer_column footer_contact">
-							<div class="logo_container">
-								<div class="logo"><a href="#">OneTech</a></div>
-							</div>
-							<div class="footer_title">Got Question? Call Us 24/7</div>
-							<div class="footer_phone">+38 068 005 3570</div>
-							<div class="footer_contact_text">
-								<p>17 Princess Road, London</p>
-								<p>Grester London NW18JR, UK</p>
-							</div>
-							<div class="footer_social">
-								<ul>
-									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fab fa-youtube"></i></a></li>
-									<li><a href="#"><i class="fab fa-google"></i></a></li>
-									<li><a href="#"><i class="fab fa-vimeo-v"></i></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-lg-2 offset-lg-2">
-						<div class="footer_column">
-							<div class="footer_title">Find it Fast</div>
-							<ul class="footer_list">
-								<li><a href="#">Computers & Laptops</a></li>
-								<li><a href="#">Cameras & Photos</a></li>
-								<li><a href="#">Hardware</a></li>
-								<li><a href="#">Smartphones & Tablets</a></li>
-								<li><a href="#">TV & Audio</a></li>
-							</ul>
-							<div class="footer_subtitle">Gadgets</div>
-							<ul class="footer_list">
-								<li><a href="#">Car Electronics</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-lg-2">
-						<div class="footer_column">
-							<ul class="footer_list footer_list_2">
-								<li><a href="#">Video Games & Consoles</a></li>
-								<li><a href="#">Accessories</a></li>
-								<li><a href="#">Cameras & Photos</a></li>
-								<li><a href="#">Hardware</a></li>
-								<li><a href="#">Computers & Laptops</a></li>
-							</ul>
-						</div>
-					</div>
-
-					<div class="col-lg-2">
-						<div class="footer_column">
-							<div class="footer_title">Customer Care</div>
-							<ul class="footer_list">
-								<li><a href="#">My Account</a></li>
-								<li><a href="#">Order Tracking</a></li>
-								<li><a href="#">Wish List</a></li>
-								<li><a href="#">Customer Services</a></li>
-								<li><a href="#">Returns / Exchange</a></li>
-								<li><a href="#">FAQs</a></li>
-								<li><a href="#">Product Support</a></li>
-							</ul>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</footer>
-
-		<!-- Copyright -->
-
-		<!-- <div class="copyright">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					
-					<div class="copyright_container d-flex flex-sm-row flex-column align-items-center justify-content-start">
-						<div class="copyright_content">
-Copyright &copy;<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://templatespoint.net/" target="_blank">TemplatesPoint</a>
-</div>
-						<div class="logos ml-sm-auto">
-							<ul class="logos_list">
-								<li><a href="#"><img src="images/logos_1.png" alt=""></a></li>
-								<li><a href="#"><img src="images/logos_2.png" alt=""></a></li>
-								<li><a href="#"><img src="images/logos_3.png" alt=""></a></li>
-								<li><a href="#"><img src="images/logos_4.png" alt=""></a></li>
-							</ul>
-						</div>
-					</div>
+					</p>
 				</div>
 			</div>
 		</div>
-	</div> -->
 	</div>
 
-	<script src="/static/js/jquery-3.3.1.min.js"></script>
-	<script src="/static/styles/bootstrap4/popper.js"></script>
-	<script src="/static/styles/bootstrap4/bootstrap.min.js"></script>
-	<script src="/static/plugins/greensock/TweenMax.min.js"></script>
-	<script src="/static/plugins/greensock/TimelineMax.min.js"></script>
-	<script src="/static/plugins/scrollmagic/ScrollMagic.min.js"></script>
-	<script src="/static/plugins/greensock/animation.gsap.min.js"></script>
-	<script src="/static/plugins/greensock/ScrollToPlugin.min.js"></script>
-	<script src="/static/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
-	<script src="/static/plugins/parallax-js-master/parallax.min.js"></script>
-	<script src="/static/plugins/easing/easing.js"></script>
-	<script src="/static/js/blog_single_custom.js"></script>
-	<script src="/static/js/script.js"></script>
-	<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script>
+
+	<!--  -->
+
+	<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+		data-bs-whatever="@mdo">Open modal for @mdo</button> -->
+	<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+		data-bs-whatever="@fat">Open modal for @fat</button>
+	<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+		data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button> -->
+
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="exampleModalLabel">Create the Post</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<form action="" method="post" enctype="multipart/form-data">
+						{% csrf_token %}
+						<div class=" mb-3 d-flex">
+							<select class="form-select m-2" name="brand" id="category">
+								<option value="" disabled selected>Brand</option>
+								{% for i in start %}
+								<option value="{{i.brand}}">{{i.brand|title}}</option>
+								{% endfor %}
+							</select>
+							<select class="form-select m-2" name="category" id="category">
+								<option value="" disabled selected>Select Category</option>
+								{% for i in start %}
+								<option value="{{i.category}}">{{i.category|title}}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label">Image:</label>
+							<input type="file" class="form-control" name="File_name" id="recipient-name">
+						</div>
+						<div class="mb-3">
+							<label for="message-text" class="col-form-label">Message:</label>
+							<textarea class="form-control" name="text" id="message-text"></textarea>
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-primary">create Post</button>
+				</div>
+			</div>
+			</form>
+		</div>
+	</div>
 
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'UA-23581568-13');
-	</script>
-
+	<!--  -->
 </body>
+<script>
+	$(document).on('focusin', 'navbar input.search-textbox', function () {
+		if ($(this).val() <= 0) {
+			var parent = $(this).closest('div.search');
+			parent.addClass('focused');
+		}
+	});
+	$(document).on('focusout', 'navbar input.search-textbox', function () {
+		if ($(this).val() <= 0) {
+			var parent = $(this).closest('div.search');
+			parent.removeClass('focused');
+		}
+	});
+	$(document).on('click', 'navbar .search', function () {
+		$(this).children('input.search-textbox').focus();
+	});
+
+	/*Text Key Events for Animating Icons i.e. .ico-btn*/
+	$(document).on('keyup', 'navbar input.search-textbox', function () {
+		var parent = $(this).closest('div.search');
+		var phrase = $(this).val(),
+			phrase_length = phrase.length;
+
+		if (phrase_length >= 2) {
+			parent.addClass('multi-char');
+			if (!parent.hasClass('not-null')) {
+				parent.addClass('not-null');
+			}
+
+		}
+		else if (phrase_length == 1) {
+			parent.addClass('not-null');
+			parent.removeClass('multi-char');
+		}
+		else if (phrase_length <= 0) {
+			parent.removeClass('not-null');
+			parent.removeClass('multi-char');
+		}
+	});
+
+	/*Tab Highlighter Functionality*/
+	$(document).on('click', 'navbar .tabs ul.navbar-body li a', function () {
+		var $this = $(this);
+		TabHighlighter.set($this);
+		$this.closest('li').siblings('.active').removeClass('active');
+		$this.closest('li').addClass('active');
+	});
+	var TabHighlighter = {
+		set: function ($this) {
+			$('.tab-highlighter').css({
+				'left': $this.closest('li').offset().left,
+				'width': $this.closest('li').outerWidth()
+			});
+		},
+		refresh: function () {
+			var $this = $('.tabs ul.navbar-body li.active a');
+			$('.tab-highlighter').css({
+				'left': $this.closest('li').offset().left,
+				'width': $this.closest('li').outerWidth()
+			});
+		}
+	};
+	$(window).resize(function () {
+		TabHighlighter.refresh();
+	});
+	$(document).ready(function () {
+		TabHighlighter.refresh();
+	});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+	integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+	integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+	crossorigin="anonymous"></script>
+<!-- <script src="/static/js/script.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js'></script> -->
 
 
 </html>
