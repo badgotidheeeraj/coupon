@@ -10,7 +10,7 @@ class Post(models.Model):
     user = models.ForeignKey(UserAccount, on_delete=models.CASCADE)
     brand = models.CharField(max_length=255, )
     category = models.CharField(max_length=255, )  
-    File_name = models.ImageField(upload_to='media/')
+    File_name = models.ImageField(upload_to='media')
     text = models.TextField(_("Description"), max_length=100)
     created_at = models.DateTimeField(default=datetime.now)
 

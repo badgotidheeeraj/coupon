@@ -15,7 +15,7 @@ def profile(request):
 
 
 
-    return render(request, 'promo/blog_single.html',{'start':start ,"postdata":Post.objects.filter(user=request.user)})
+    return render(request, 'promo/blog_single.html',{'start':start ,"postdata":Post.objects.filter(user=request.user).order_by('created_at')})
 
 def create_post(request):
     # start=masterdata,object.all()
